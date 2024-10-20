@@ -63,7 +63,19 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return new List<int>(); // Placeholder
+                int l = nums.Length; // storing length of nums in l
+                // storing the result missing numbers in a list
+                List<int> result = new List<int>();
+                // using hashset collection to store all elements in nums in a set
+                HashSet<int> set = new HashSet<int>(nums);
+                for (int i = 1; i < l; i++)
+                {
+                    if (!set.Contains(i)) // contains function checks if set contains the particular number or not
+                    {
+                        result.Add(i); // adding the missing numbers to result;
+                    }
+                }
+                return new List<int>(result); // Placeholder
             }
             catch (Exception)
             {
@@ -77,7 +89,20 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return new int[0]; // Placeholder
+                // declaring two lists to store even and odd integers in each
+                List<int> even = new List<int>();
+                List<int> odd = new List<int>();
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (nums[i] % 2 == 0) // checking even or odd condition by checking reminder if divided by 2
+                        even.Add(nums[i]); // adding to even list
+                    else odd.Add(nums[i]); // adding to ood list
+
+                }
+                even.AddRange(odd); // appending elements in odd list to even
+                // converting even list to an array to return the result
+                int[] result = even.ToArray();
+                return result; // Placeholder
             }
             catch (Exception)
             {
@@ -91,7 +116,23 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return new int[0]; // Placeholder
+                int l = nums.Length;
+                int[] result = new int[2]; // to store the result indices
+                for (int i = 0; i < l; i++)
+                {
+                    for (int j = i + 1; j < l; j++)
+                    {
+                        if (nums[i] + nums[j] == target)// checking for sum of two numbers in array adding up to target or not
+                        {
+                            result[0] = i;
+                            result[1] = j;
+                            break;
+                        }
+
+
+                    }
+                }
+                return result; // Placeholder
             }
             catch (Exception)
             {
@@ -105,7 +146,10 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return 0; // Placeholder
+                int l = nums.Length;
+                Array.Sort(nums);// sorting the array using sort function
+                int maxprodcut = nums[l - 3] * nums[l - 2] * nums[l - 1]; // product of 3 max integers in array
+                return maxprodcut; // Placeholder
             }
             catch (Exception)
             {
@@ -119,7 +163,8 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return "101010"; // Placeholder
+                string binary = Convert.ToString(decimalNumber, 2);// converting decimal to binary using ToString function
+                return binary; // Placeholder
             }
             catch (Exception)
             {
@@ -133,7 +178,9 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return 0; // Placeholder
+                Array.Sort(nums);
+                int min = nums[0];
+                return min; // Placeholder
             }
             catch (Exception)
             {
@@ -147,7 +194,15 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return false; // Placeholder
+                string s1 = x.ToString(); // converting x to string
+                char[] chars = s1.ToCharArray(); // converting string to char array
+                Array.Reverse(chars); // revsering the char array
+                string s2 = new string(chars);// converting char array to string
+                int y = int.Parse(s2); // converting string to int
+                if (x == y) // comparing x and y if equal return true else false
+                    return true;
+                else
+                    return false; // Placeholder
             }
             catch (Exception)
             {
@@ -161,7 +216,16 @@ namespace Assignment_2
             try
             {
                 // Write your code here
-                return 0; // Placeholder
+                int[] f = new int[n+1]; // creating an array to store sequence
+                f[0] = 0;
+                f[1] = 1;
+                int i = 2; // intializing i to 2
+                while (i <= n) // checking for condition if i <= n
+                {
+                    f[i] = f[i - 1] + f[i - 2];
+                    i++;
+                }
+                return f[n]; // Placeholder
             }
             catch (Exception)
             {
